@@ -38,7 +38,7 @@ A sample configuration file is found below.
 
 ## SYNOPSIS
 
-`*dynamicdns.bash* [-Sdvlh46][-k API Key]
+`dynamicdns.bash [-Sdvlh46][-k API Key]
  [-r Record] [-i New IP Address] [-L Logging (true/false)]`
 
 ## DESCRIPTION
@@ -50,34 +50,44 @@ line override any options specified within the configuration file.
 The options are as follows:
 
 >__-S__ Save any options provided via the command line
-to the configuration file.  
+> to the configuration file.  
+>
 >__-d__ Save any options provided via the command line to the configuration file
-and do not update DNS.  
+> and do not update DNS.  
+>
 >__-v__ Enable verbose mode.  
+>
 >__-l__ Enable list-only mode, showing only current value returned
+> by the Dreamhost API.  
+>
 >__-h__ Help text
->__-4__  IPv4 only (Otherwise will try IPv4 and then fall back to IPv6)
->__-6__  IPv6 only mode.
-by the Dreamhost API.  
->__-k__ *API Key*  
-Dreamhost API Key with dns-list\_records,
-dns-remove\_record, and dns-add\_record permissions.  
->__-r__ *Record*  
+>
+>__-4__ IPv4 only (Otherwise will try IPv4 and then fall back to IPv6)
+>
+>__-6__ IPv6 only mode.
+>
+>__-k__ \<*API Key*\>  
+> Dreamhost API Key with the permissions dns-list\_records,
+> dns-remove\_record, and dns-add\_record.
+>
+>__-r__ \<*Record*\>
 > The DNS Record to be updated.  
->__-i__ *IP Address*  
+>
+>__-i__ \<*IP Address*\>
 > Specify the IPv4 Address to update the Record to.  
-If no address is specified, the utility will use __dig__ to
-obtain the current public IPv4 Address of your computer.  
->__-L__ *(true/false)*  
+> If no address is specified, the utility will use __dig__ to
+> obtain the current public IPv4 Address of your computer.  
+>
+>__-L__ \<*(true/false)*\>
 > Enables system logging via the __logger__ command.
-The configuration file sets logging to *true* by default.
+> The configuration file sets logging to *true* by default.
 
 ## RUNNING WITH CRON
 
 You can easily add this to your crontab with an entry like
 
 ```
-  @hourly ~/bin/dreamhost-dynamic-dns/dynamicdns.bash
+@hourly ~/bin/dreamhost-dynamic-dns/dynamicdns.bash
 ```
 
 ## TODO
